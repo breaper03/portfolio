@@ -35,8 +35,11 @@ export default function Contact() {
     setIsSubmitting(true)
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
+    // await new Promise((resolve) => setTimeout(resolve, 1500))
+    await fetch("/api/send", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    })
     toast({
       title: "Message sent!",
       description: "Thank you for your message. I'll get back to you soon.",
@@ -48,6 +51,7 @@ export default function Contact() {
       subject: "",
       message: "",
     })
+    console.log(formData)
     setIsSubmitting(false)
   }
 
@@ -55,19 +59,19 @@ export default function Contact() {
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: "Email",
-      value: "contact@Gabriel Paez.dev",
-      link: "mailto:contact@Gabriel Paez.dev",
+      value: "gabrielpaez2019@gmail.com",
+      link: "mailto:gabrielpaez2019@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       title: "Phone",
-      value: "+44 (123) 456-7890",
-      link: "tel:+441234567890",
+      value: "+58 (412) 205-3557",
+      link: "tel:+584122053557",
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
       title: "Location",
-      value: "Manchester, England",
+      value: "Caracas, Venezuela",
       link: null,
     },
   ]
